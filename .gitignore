@@ -9,3 +9,4 @@ audio/chunks/
 video-silent.mp4
 audio-full.wav
 .DS_Store
+!examples/turing-machine-np/output/*.mp4

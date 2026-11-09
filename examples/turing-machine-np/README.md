@@ -2,7 +2,7 @@
 
 A complete episode built with this skill: an emulation of the Turing-machine beat (24:39–29:36) of 《这可能是人类提出最深刻的数学/计算机问题》 by 漫士沉思录 (Manshi / Lu Rui) — the segment that builds a Turing machine, runs it, breaks determinism, and lands on "P = NP ?".
 
-**The rendered video** (`turing-segment-v1.mp4`, 4:34.5, 1280×720, 30fps, 8.65 MB) is not in this repository; it lives in the author's workspace. Everything needed to re-render it is here: `episode.py` + `timeline.json` + the narration chunks (re-synthesize with `python3 -m engine.synth` from the repo root, then `python3 -m engine.build`). Six QA stills from the original build are in `stills/`.
+**The rendered video** is in this repository: [`output/turing-segment-v1.mp4`](output/turing-segment-v1.mp4) (4:34.5, 1280×720, 30fps, 8.65 MB) — it plays directly on its GitHub page. Everything needed to re-render it is here: `episode.py` + `timeline.json` + the narration chunks (re-synthesize with `python3 -m engine.synth` from the repo root, then `python3 -m engine.build`). Six QA stills from the original build are in `stills/`.
 
 ## Files
 
