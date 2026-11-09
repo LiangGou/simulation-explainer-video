@@ -6,6 +6,8 @@
 
 这套方法逆向自漫士沉思录（卢睿）的讲解视频：他的 P 与 NP 一集里，一台真正的图灵机运行了五分钟，作为整集的核心论证。拆解方法本身——不只是画面风格——记录在 `docs/METHOD.md` 中。
 
+**背后的故事：**[Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html)——一篇博客，讲一次演示（漫士的那支视频）如何变成这个 skill 包，以及模仿学习自身的数学对这个结果说了什么。**观看[上下对比视频](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)**：原版在上、仿制版在下，逐镜头对齐。
+
 ## 方法，五句话
 
 1. 先把题目拆成节拍；在动手制作之前，把每个节拍的主题、转场和旁白全部锁定在剧本里。
@@ -62,8 +64,8 @@ examples/turing-machine-np/   完整示例 episode（剧本、规格、仿真、
 
 ## 示例作品
 
-`examples/turing-machine-np/` 是一个完整的 episode：P 与 NP 故事中的图灵机一拍——一台真正运行的奇偶校验机（δ 规则表、步数计数器、黑板高亮全部由执行结果驱动），一台带实时求和天平的等分划分机（结局 254 = 254），一棵只有一条绿色路径的分支选择树，19 对 9216 的算账收尾，以及作为标志性画面的 P ⊆ NP 平台。它的 README 把每一个节拍映射回引擎与模式层。渲染成片（4 分 34.5 秒，1280×720）不在本仓库中，保存在作者的工作区里。
+`examples/turing-machine-np/` 是一个完整的 episode：P 与 NP 故事中的图灵机一拍——一台真正运行的奇偶校验机（δ 规则表、步数计数器、黑板高亮全部由执行结果驱动），一台带实时求和天平的等分划分机（结局 254 = 254），一棵只有一条绿色路径的分支选择树，19 对 9216 的算账收尾，以及作为标志性画面的 P ⊆ NP 平台。它的 README 把每一个节拍映射回引擎与模式层。渲染成片就在这个仓库里：仿制版 [`output/turing-segment-v1.mp4`](examples/turing-machine-np/output/turing-segment-v1.mp4)（4 分 34.5 秒，1280×720），以及与漫士原版的[上下对比视频](examples/turing-machine-np/output/comparison-v1.mp4)（4 分 47 秒）——两个视频都能在各自的 GitHub 页面上直接播放。
 
 ## 许可证
 
-MIT——见 `LICENSE`。（许可证的选择将在发布时由作者最终确认。）
+MIT——见 `LICENSE`。

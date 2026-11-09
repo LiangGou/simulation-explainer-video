@@ -6,6 +6,8 @@ An agent skill + rendering engine for making **simulation-driven explainer video
 
 The method is reverse-engineered from the explainer videos of 漫士沉思录 (Manshi / Lu Rui), whose P-vs-NP episode runs a real Turing machine for five minutes as its central argument. The decomposition method — not just the look — is documented in `docs/METHOD.md`.
 
+**The story:** [Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html) — the blog post about how one demonstration (Manshi's video) became this skill pack, and what imitation learning's own mathematics says about the result. **Watch the [side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)**: the original segment on top, the imitation below, aligned shot by shot.
+
 ## The method in 5 lines
 
 1. Decompose the topic into beats; lock each beat's topic, transition, and narration in a script **before** building.
@@ -62,8 +64,8 @@ examples/turing-machine-np/   the complete worked episode (script, spec, sims, s
 
 ## Worked example
 
-`examples/turing-machine-np/` is a complete episode: the Turing-machine beat of the P-vs-NP story — a parity machine that really runs (δ table, step counter, board highlight driven by the executed run), a partition machine with a live-sum balance ending 254 = 254, a branching choice tree with one green path, the 19-vs-9216 accounting coda, and the P ⊆ NP platform as the signature frame. Its README maps every beat onto the engine and archetypes. The rendered video (4:34.5, 1280×720) is not in this repo; it lives in the author's workspace.
+`examples/turing-machine-np/` is a complete episode: the Turing-machine beat of the P-vs-NP story — a parity machine that really runs (δ table, step counter, board highlight driven by the executed run), a partition machine with a live-sum balance ending 254 = 254, a branching choice tree with one green path, the 19-vs-9216 accounting coda, and the P ⊆ NP platform as the signature frame. Its README maps every beat onto the engine and archetypes. The rendered videos are in this repo: the imitation, [`output/turing-segment-v1.mp4`](examples/turing-machine-np/output/turing-segment-v1.mp4) (4:34.5, 1280×720), and the [side-by-side comparison](examples/turing-machine-np/output/comparison-v1.mp4) with Manshi's original (4:47) — both play directly on their GitHub pages.
 
 ## License
 
-MIT — see `LICENSE`. (License choice to be confirmed by the owner on publish.)
+MIT — see `LICENSE`.
