@@ -1,0 +1,11 @@
+__pycache__/
+*.mp4
+*.wav
+frtmp/
+frames/
+segs/
+scratch/
+audio/chunks/
+video-silent.mp4
+audio-full.wav
+.DS_Store

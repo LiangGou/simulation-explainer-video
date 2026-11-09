@@ -1,0 +1,5 @@
+# Rendering (required)
+Pillow>=10.0
+# QA harness only: dual-model ASR number verification (optional)
+faster-whisper>=1.0
+# System dependency (not pip): ffmpeg + ffprobe on PATH
