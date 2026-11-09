@@ -21,7 +21,7 @@
   <a href="#许可证">许可证</a>
 </p>
 
-**观看：**[上下对比视频](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)——原版在上、仿制版在下，逐镜头对齐。**阅读：**[Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html)——一篇博客，讲一次演示如何变成这个 skill 包，以及模仿学习自身的数学对这个结果说了什么。**单独的仿制版：**[turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4)。
+**观看：**[上下对比视频](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)——原版在上、仿制版在下，逐镜头对齐。**阅读：**[Muse Amazed Me Again — One-Shot Imitation Learning, and Your Taste Is the Ceiling](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html)——一篇博客，讲一次演示如何变成这个 skill 包，以及模仿学习自身的数学对这个结果说了什么。**单独的仿制版：**[turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4)。
 
 **一句话版本：**一个用于制作**仿真驱动型讲解视频**的 agent skill + 渲染引擎——先把题目拆成节拍，给每个节拍配一台能真正运行的仿真、由计算出的状态驱动画面，旁白最后才加，交付前用双模型 ASR 核验每一个说出口的数字。
 

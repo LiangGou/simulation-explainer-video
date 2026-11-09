@@ -21,7 +21,7 @@
   <a href="#license">License</a>
 </p>
 
-**Watch:** [the side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4) — the original segment on top, the imitation below, aligned shot by shot. **Read:** [Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html) — the blog post about how one demonstration became this skill pack, and what imitation learning's own mathematics says about the result. **The imitation on its own:** [turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4).
+**Watch:** [the side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4) — the original segment on top, the imitation below, aligned shot by shot. **Read:** [Muse Amazed Me Again — One-Shot Imitation Learning, and Your Taste Is the Ceiling](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html) — the blog post about how one demonstration became this skill pack, and what imitation learning's own mathematics says about the result. **The imitation on its own:** [turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4).
 
 **The short version:** an agent skill + rendering engine for making **simulation-driven explainer videos** — decompose the topic into beats, give every beat a working simulation whose computed state drives the picture, put the narration on last, and verify every spoken number by dual-model ASR before delivery.
 
