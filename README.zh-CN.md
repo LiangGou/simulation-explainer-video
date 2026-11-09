@@ -1,12 +1,62 @@
-[English](README.md) | 简体中文
+[English](README.md) | **简体中文**
+
+<div align="center">
 
 # simulation-explainer-video
+
+**大多数讲解视频，无非是给幻灯片配上旁白。这个项目是一个 agent skill 包，专门做另一种：图灵机在屏幕上真实运行，天平实时累加求和，选择树恰好长出一条绿色路径——每一处画面，都由一台真实运行的仿真驱动。**
+
+[![License: MIT](https://img.shields.io/github/license/LiangGou/simulation-explainer-video)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/LiangGou/simulation-explainer-video)](https://github.com/LiangGou/simulation-explainer-video/stargazers)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](requirements.txt)
+
+</div>
+
+<p align="center">
+  <a href="#方法五句话">方法</a> •
+  <a href="#快速上手给-agent">快速上手</a> •
+  <a href="#架构三层">架构</a> •
+  <a href="#环境要求">环境要求</a> •
+  <a href="#示例作品">示例作品</a> •
+  <a href="#许可证">许可证</a>
+</p>
+
+**观看：**[上下对比视频](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)——原版在上、仿制版在下，逐镜头对齐。**阅读：**[Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html)——一篇博客，讲一次演示如何变成这个 skill 包，以及模仿学习自身的数学对这个结果说了什么。**单独的仿制版：**[turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4)。
+
+**一句话版本：**一个用于制作**仿真驱动型讲解视频**的 agent skill + 渲染引擎——先把题目拆成节拍，给每个节拍配一台能真正运行的仿真、由计算出的状态驱动画面，旁白最后才加，交付前用双模型 ASR 核验每一个说出口的数字。
 
 一个用于制作**仿真驱动型讲解视频**的 agent skill + 渲染引擎：图灵机在屏幕上真实运行，天平实时累加求和，选择树只长出一条绿色路径——而不是给幻灯片配上旁白。
 
 这套方法逆向自漫士沉思录（卢睿）的讲解视频：他的 P 与 NP 一集里，一台真正的图灵机运行了五分钟，作为整集的核心论证。拆解方法本身——不只是画面风格——记录在 `docs/METHOD.md` 中。
 
-**背后的故事：**[Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html)——一篇博客，讲一次演示（漫士的那支视频）如何变成这个 skill 包，以及模仿学习自身的数学对这个结果说了什么。**观看[上下对比视频](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)**：原版在上、仿制版在下，逐镜头对齐。
+<div align="center">
+
+![示例作品中的一帧：P ⊆ NP 平台，两个平台上立着各问题的路牌，由这一集的仿真定义逐帧渲染而成](examples/turing-machine-np/stills/s9-platform.png)
+
+*示例作品的标志性画面：P ⊆ NP 平台。*
+
+</div>
+
+> 状态：可用的 skill 包与引擎，内含一个完整的示例 episode。Python 3.10+，需要 Pillow 与 ffmpeg；示例里已经提交了 `timeline.json`，所以示例可以直接从头到尾渲染。旁白需要一个 TTS 插件（任意 CLI）——见 `docs/adapters.md`。
+
+## 亮点
+
+- **能真正运行的仿真，不是示意图**——每个节拍计算出的状态驱动每一处画面；数字永远不是手敲上去的。
+- **先拆解，再制作**——节拍、转场和旁白先全部锁定在剧本里；定义永远迟到，排在演示、生活比喻和完整实例之后。
+- **一个舞台、一套配色**——全片一套一致的视觉系统；论点句以标题卡落地，而不是藏在字幕里。
+- **数字经过核验**——音频最后做，交付前用双模型 ASR 核验每一个说出口的数字。
+- **是一个 skill，不是一次性脚本**——`SKILL.md` 装着完整的方法、制作流程、引擎 API 和完成标准，任何 agent（Muse、Claude Code、Codex）都能拿它去做新题目。
+
+## 目录
+
+- [方法，五句话](#方法五句话)
+- [快速上手（给 agent）](#快速上手给-agent)
+- [架构（三层）](#架构三层)
+- [仓库结构](#仓库结构)
+- [环境要求](#环境要求)
+- [示例作品](#示例作品)
+- [致谢](#致谢)
+- [许可证](#许可证)
 
 ## 方法，五句话
 
@@ -66,6 +116,12 @@ examples/turing-machine-np/   完整示例 episode（剧本、规格、仿真、
 
 `examples/turing-machine-np/` 是一个完整的 episode：P 与 NP 故事中的图灵机一拍——一台真正运行的奇偶校验机（δ 规则表、步数计数器、黑板高亮全部由执行结果驱动），一台带实时求和天平的等分划分机（结局 254 = 254），一棵只有一条绿色路径的分支选择树，19 对 9216 的算账收尾，以及作为标志性画面的 P ⊆ NP 平台。它的 README 把每一个节拍映射回引擎与模式层。渲染成片就在这个仓库里：仿制版 [`output/turing-segment-v1.mp4`](examples/turing-machine-np/output/turing-segment-v1.mp4)（4 分 34.5 秒，1280×720），以及与漫士原版的[上下对比视频](examples/turing-machine-np/output/comparison-v1.mp4)（4 分 47 秒）——两个视频都能在各自的 GitHub 页面上直接播放。
 
+## 致谢
+
+这套方法——以及它所学习的那个演示——属于漫士沉思录（卢睿）：他的 P 与 NP 一集是示例作品的源演示，`docs/METHOD.md` 里记录的拆解方法也是他的，是逐帧逆向出来的。围绕它的 skill 包，则是在作者的指导下、与 Muse（Meta 的个人 AI 智能体）一起构建的。
+
+**如果这个包帮你的 agent 把某个难题目讲清楚了，考虑给仓库点一颗星**——这样能帮其他做 agent 的人找到它。
+
 ## 许可证
 
-MIT——见 `LICENSE`。
+MIT——见 [LICENSE](LICENSE)。

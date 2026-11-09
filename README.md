@@ -1,12 +1,62 @@
-English | [简体中文](README.zh-CN.md)
+**English** | [简体中文](README.zh-CN.md)
+
+<div align="center">
 
 # simulation-explainer-video
+
+**Most explainer videos are slides with narration laid on top. This is an agent skill pack for making the other kind: a Turing machine that actually runs on screen, a balance scale that sums live, a choice tree that grows exactly one green path — every visual driven by a real, running simulation.**
+
+[![License: MIT](https://img.shields.io/github/license/LiangGou/simulation-explainer-video)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/LiangGou/simulation-explainer-video)](https://github.com/LiangGou/simulation-explainer-video/stargazers)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](requirements.txt)
+
+</div>
+
+<p align="center">
+  <a href="#the-method-in-5-lines">Method</a> •
+  <a href="#quickstart-for-an-agent">Quickstart</a> •
+  <a href="#architecture-three-layers">Architecture</a> •
+  <a href="#requirements">Requirements</a> •
+  <a href="#worked-example">Worked example</a> •
+  <a href="#license">License</a>
+</p>
+
+**Watch:** [the side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4) — the original segment on top, the imitation below, aligned shot by shot. **Read:** [Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html) — the blog post about how one demonstration became this skill pack, and what imitation learning's own mathematics says about the result. **The imitation on its own:** [turing-segment-v1.mp4](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4).
+
+**The short version:** an agent skill + rendering engine for making **simulation-driven explainer videos** — decompose the topic into beats, give every beat a working simulation whose computed state drives the picture, put the narration on last, and verify every spoken number by dual-model ASR before delivery.
 
 An agent skill + rendering engine for making **simulation-driven explainer videos**: the kind where a Turing machine actually runs on screen, a balance scale sums live, and a choice tree grows one green path — instead of slides with narration on top.
 
 The method is reverse-engineered from the explainer videos of 漫士沉思录 (Manshi / Lu Rui), whose P-vs-NP episode runs a real Turing machine for five minutes as its central argument. The decomposition method — not just the look — is documented in `docs/METHOD.md`.
 
-**The story:** [Muse Amazed Me Again — With One-Shot Imitation Learning](https://lianggou.github.io/2026/11/08/muse-amazed-me-again-explainer-video.html) — the blog post about how one demonstration (Manshi's video) became this skill pack, and what imitation learning's own mathematics says about the result. **Watch the [side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4)**: the original segment on top, the imitation below, aligned shot by shot.
+<div align="center">
+
+![A frame from the worked example: the P ⊆ NP platform, signposts for the problems placed on each platform, rendered frame by frame from the episode's simulation definitions](examples/turing-machine-np/stills/s9-platform.png)
+
+*The signature frame of the worked example: the P ⊆ NP platform.*
+
+</div>
+
+> Status: working skill pack and engine, with one complete worked episode included. Python 3.10+ with Pillow and ffmpeg; a `timeline.json` is committed in the example, so the example renders end-to-end immediately. Narration needs a TTS plug (any CLI) — see `docs/adapters.md`.
+
+## Highlights
+
+- **Working simulations, not illustrations** — each beat's computed state drives every visual; numbers are never typed by hand.
+- **Decomposition before building** — beats, transitions, and narration are locked in a script first; definitions arrive late, after demonstration, metaphor, and a full instance.
+- **One stage, one palette** — a single consistent visual system for the whole video; thesis statements land as title cards, not subtitles.
+- **Verified numbers** — audio goes on last, and every spoken number is checked by dual-model ASR before delivery.
+- **A skill, not a script** — `SKILL.md` carries the whole method, the production workflow, the engine API, and the done-criteria, so any agent (Muse, Claude Code, Codex) can run it on a new topic.
+
+## Contents
+
+- [The method in 5 lines](#the-method-in-5-lines)
+- [Quickstart (for an agent)](#quickstart-for-an-agent)
+- [Architecture (three layers)](#architecture-three-layers)
+- [Repo layout](#repo-layout)
+- [Requirements](#requirements)
+- [Worked example](#worked-example)
+- [Credits](#credits)
+- [License](#license)
 
 ## The method in 5 lines
 
@@ -66,6 +116,12 @@ examples/turing-machine-np/   the complete worked episode (script, spec, sims, s
 
 `examples/turing-machine-np/` is a complete episode: the Turing-machine beat of the P-vs-NP story — a parity machine that really runs (δ table, step counter, board highlight driven by the executed run), a partition machine with a live-sum balance ending 254 = 254, a branching choice tree with one green path, the 19-vs-9216 accounting coda, and the P ⊆ NP platform as the signature frame. Its README maps every beat onto the engine and archetypes. The rendered videos are in this repo: the imitation, [`output/turing-segment-v1.mp4`](examples/turing-machine-np/output/turing-segment-v1.mp4) (4:34.5, 1280×720), and the [side-by-side comparison](examples/turing-machine-np/output/comparison-v1.mp4) with Manshi's original (4:47) — both play directly on their GitHub pages.
 
+## Credits
+
+The method — and the demonstration it was learned from — belongs to 漫士沉思录 (Manshi / Lu Rui): his P-vs-NP episode is the worked example's source, and the decomposition documented in `docs/METHOD.md` is his, reverse-engineered frame by frame. The skill pack around it was built with Muse, Meta's personal AI agent, under its owner's direction.
+
+**If this pack helps your agent explain something hard, consider starring the repo** — it helps other agent builders find it.
+
 ## License
 
-MIT — see `LICENSE`.
+MIT — see [LICENSE](LICENSE).
